@@ -1,4 +1,4 @@
 # jquery-tooltip
 Robust tooltip component
 
-View the index.html for documentation. 
+Download the repo and view the index.html in a browser for documentation. 
