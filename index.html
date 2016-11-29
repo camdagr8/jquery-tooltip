@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Tooltip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <h1>Configuration</h1>
+
+<pre class="prettyprint lang-js">
+<code>
+$("[data-toggle='tooltip']").tooltip({
+    classes 	: "tooltip",
+    content	: null,
+    persistent 	: false,
+    plainText 	: false,
+    position 	: "top-center",
+    target 	: "body",
+    trigger 	: "hover"
+});
+</code>
+</pre>
+<div class="tooltip-demo">
+	<button class="tooltip-demo-btn center" type="button" data-toggle="tooltip" title="here's a really simple tooltip!" data-trigger="hover">Simple Tooltip</button>
+</div>
+<div class="datagrid">
+	<table>
+		<thead>
+			<tr>
+				<th style="width: 100px;">Property</th>
+				<th style="width: 130px;">Type</th>
+				<th>Description</th>
+				<th style="width: 100px">Default</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>classes</td>
+				<td>String</td>
+				<td>A space delimited list of classes to apply to the tooltip container.</td>
+				<td>"tooltip"</td>
+			</tr>
+			<tr>
+				<td>content</td>
+				<td>String | $('.selector')</td>
+				<td>Specifies the HTML to use inside the tooltip container.</td>
+				<td>"parent"</td>
+			</tr>
+			<tr>
+				<td>persistent</td>
+				<td>Boolean</td>
+				<td>
+					Specifies if the tooltip should hide when the opposite trigger is fired, a user clicks outside of the tooltip or when another tooltip is shown.
+					<ul>
+						<li>If the trigger is hover (mouseover), the tooltip will automatically hide when the mouseout event is fired.</li>
+						<li>If the trigger is focus, the tooltip will automatically hide when the blur event is fired.</li>
+						<li>If the trigger is click, the tooltip will automatically hide when the caller element is clicked again.</li>
+					</ul>
+				</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>plainText</td>
+				<td>Boolean</td>
+				<td>Whether to treat the [content] as plain text instead of HTML.</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>position</td>
+				<td>String</td>
+				<td>
+					<div>
+						Where to position the tooltip.
+						<p>Prefixing any position value with "auto-" (auto-left-middle) will dynamically position the tooltip. In cases where the tooltip will display off screen, the tooltip will be positioned in a position that allows it to be seen.</p>
+						If the position value is "auto-left-middle" but will display off screen, "auto-right-middle" will be applied.
+					</div>
+					<ul style="float:left; width: 140px;">
+						<li>top-left</li><li>top-center</li><li>top-right</li>
+						<li>left-top</li><li>left-middle</li><li>left-bottom</li>
+					</ul>
+					<ul style="float:left;">
+						<li>bottom-left</li><li>bottom-center</li><li>bottom-right</li>
+						<li>right-top</li><li>right-middle</li><li>right-bottom</li>
+					</ul>
+				</td>
+				<td>top-center</td>
+			</tr>
+			<tr>
+				<td>target</td>
+				<td>String | $('.selector')</td>
+				<td>Appends the tooltip [content] to a specific element.</td>
+				<td>"body"</td>
+			</tr>
+			<tr>
+				<td>trigger</td>
+				<td>String</td>
+				<td>
+					<div>Event that will display the tooltip.</div>
+					<p></p>
+					<div>If the trigger is manual you will have to toggle the tooltip via the javascript methods [show | hide | toggle].</div>
+					<ul style="float:left; width: 140px;">
+						<li>click</li><li>focus</li><li>hover</li>
+					</ul>
+					<ul style="float:left;">
+						<li>mouseover</li><li>manual</li>
+					</ul>
+				</td>
+				<td>"hover"</td>
+			</tr>
+			
+		</tbody>
+	</table>
+</div>
+
+<p>&nbsp;</p>
+<h1>Methods</h1>
+<p></p>
+<div class="datagrid">
+	<table>
+		<thead>
+			<tr>
+				<th style="width: 100px;">Method</th>
+				<th style="width: 130px;">Params</th>
+				<th>Description</th>
+				<th style="width: 100px">Returns</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>get</td>
+				<td>property</td>
+				<td>Gets the specified configuration property.</td>
+				<td>String | Array</td>
+			</tr>
+			<tr>
+				<td>hide</td>
+				<td></td>
+				<td>Hides the tooltip. Triggers the tooltip:hide event. Alias: 'close'.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>redraw</td>
+				<td></td>
+				<td>Redraws the tooltip. Triggers the tooltip:redraw event.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>set</td>
+				<td>property, value</td>
+				<td>Sets the specified configuration property.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>show</td>
+				<td></td>
+				<td>Shows the tooltip. Triggers the tooltip:show event. Alias: 'open'.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>toggle</td>
+				<td></td>
+				<td>Hides or Shows the tooltip. Triggers the tooltip:toggle event.</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<pre class="prettyprint lang-js">
+<code>
+// Get an array of all tooltip targets
+var tooltipTargets = $("[data-toggle='tooltip']").tooltip("get", "target");
+
+// Set the first tooltip's trigger
+$("[data-toggle='tooltip']:first").tooltip("set", "trigger", "focus"); 
+
+// Hide the first tooltip
+$("[data-toggle='tooltip']").tooltip("hide");
+
+// Show the first tooltip
+$("[data-toggle='tooltip']:first").tooltip("show"); 
+
+// Toggle the first tooltip 
+$("[data-toggle='tooltip']:first").tooltip("toggle");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+<h1>Events</h1>
+<p></p>
+<div class="datagrid">
+	<table>
+		<thead>
+			<tr>
+				<th style="width: 100px;">Event</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>tooltip:before.hide</td>
+				<td>Triggered before the tooltip is hidden.</td>
+			</tr>
+			<tr>
+				<td>tooltip:before.show</td>
+				<td>Triggered before the tooltip is shown.</td>
+			</tr>
+			<tr>
+				<td>tooltip:before.toggle</td>
+				<td>Triggered before the tooltip is toggled.</td>
+			</tr>
+			<tr>
+				<td>tooltip:before.update</td>
+				<td>Triggered before the tooltip configuration has been updated.</td>
+			</tr>
+			<tr>
+				<td>tooltip:hide</td>
+				<td>Triggered when the tooltip is hidden.</td>
+			</tr>
+			<tr>
+				<td>tooltip:initialized</td>
+				<td>Triggered after the tooltip has been intialized.</td>
+			</tr>
+			<tr>
+				<td>tooltip:show</td>
+				<td>Triggered when the tooltip is shown.</td>
+			</tr>
+			<tr>
+				<td>tooltip:toggle</td>
+				<td>Triggered when the tooltip is toggled.</td>
+			</tr>
+			<tr>
+				<td>tooltip:update</td>
+				<td>Triggered when the tooltip configuration has been updated.</td>
+			</tr>
+			<tr>
+				<td>tooltip:after.hide</td>
+				<td>Triggered after the tooltip is hidden.</td>
+			</tr>
+			<tr>
+				<td>tooltip:after.show</td>
+				<td>Triggered after the tooltip is shown.</td>
+			</tr>
+			<tr>
+				<td>tooltip:after.toggle</td>
+				<td>Triggered after the tooltip is toggled.</td>
+			</tr>
+			<tr>
+				<td>tooltip:after.update</td>
+				<td>Triggered after the tooltip configuration has been updated.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<p>&nbsp;</p>
+<h1>Examples</h1>
+<p></p>
+<div class="tooltip-demo">
+
+	<button
+		type="button"
+		class="tooltip-demo-btn left"
+		data-content="#tooltip-content"
+		data-persistent="false"
+		data-position="top-left"
+		data-target="body"
+		data-toggle="tooltip"
+		data-trigger="click">top-left click</button>
+
+	<button
+		type="button"
+		class="tooltip-demo-btn center"
+		data-persistent="false"
+		data-target="body"
+		data-toggle="tooltip"
+		data-trigger="focus">top-center focus</button>
+
+	<button
+		type="button"
+		class="tooltip-demo-btn right"
+		data-content="#tooltip-content"
+		data-persistent="false"
+		data-position="top-right"
+		data-target="body"
+		data-toggle="tooltip"
+		data-trigger="click">top-right click</button>
+
+	<script type="text/tooltip" id="tooltip-content"  data-tooltip-content>
+		<div>
+			<button data-dismiss="tooltip" aria-label="Close tooltip">&times;</button>
+			<h6>Lorem ipsum dolor sit amet</h6>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent efficitur pretium metus, nec rhoncus tortor scelerisque vel. Maecenas porta ullamcorper diam sed viverra. Aliquam erat volutpat. Vivamus vel tellus et dui pellentesque feugiat. Fusceut ullamcorper lacus. Aliquam a urna eu orci cursus porttitor at eu lectus.</p>
+		</div>
+	</script>
+</div>
+
+<div class="tooltip-demo">
+	<button
+		type="button"
+		class="tooltip-demo-btn left"
+		title="Using the title attribute as the content"
+		data-persistent="false"
+		data-position="auto-left-middle"
+		data-target="body"
+		data-toggle="tooltip"
+		data-trigger="hover">auto-left-middle hover</button>
+
+	<button
+		type="button"
+		class="tooltip-demo-btn center"
+		data-classes="tooltip no-padding"
+		data-content="#tooltip-content-img"
+		data-persistent="true"
+		data-position="auto-bottom-center"
+		data-target="body"
+		data-toggle="tooltip"
+		data-trigger="click">auto-bottom-center click</button>
+
+	<button
+		type="button"
+		class="tooltip-demo-btn right"
+		title="Using the title attribute as the content"
+		data-persistent="false"
+		data-position="auto-right-middle"
+		data-target="body"
+		data-toggle="tooltip"
+		data-trigger="hover">auto-right-middle hover</button>
+
+	<script type="text/tooltip" id="tooltip-content-img"  data-tooltip-content>
+		<button data-dismiss="tooltip" aria-label="Close tooltip">&times;</button>
+		<img src="http://cam.tullos.ninja/img/cam.png" style="width: 100%;" />
+	</script>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

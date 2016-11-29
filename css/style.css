@@ -1,0 +1,378 @@
+body {
+  color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background-color: #333;
+  padding: 10px;
+  position: relative;
+}
+
+button {
+  border: none;
+}
+
+h1, h2, h3, h4, h5 {
+  padding: 0 0 20px 0;
+  margin: 0;
+}
+
+h6 {
+  font-size: 18px;
+  padding: 10px 0;
+  margin: 0;
+}
+
+pre {
+  padding: 0 20px;
+  border-radius: 6px;
+  background-color: #535353 !important;
+}
+
+div.tooltip {
+  color: #cccccc;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.5;
+  position: absolute;
+  padding: 20px;
+  border: 4px solid rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 3px 3px 15px 0 rgba(0, 0, 0, 0.35);
+  border-radius: 2px;
+  max-width: 280px;
+}
+div.tooltip.no-padding {
+  padding: 0;
+  line-height: 0;
+}
+div.tooltip.no-padding * {
+  line-height: auto;
+}
+div.tooltip a[data-dismiss="tooltip"], div.tooltip button[data-dismiss="tooltip"] {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  height: auto;
+  width: 25px;
+  height: 25px;
+  z-index: 100;
+  color: #FFFFFF;
+  line-height: 1;
+  font-size: 18px;
+  border-radius: 100%;
+  background-color: #111111;
+  -webkit-transition: background .5s;
+  transition: background .5s;
+}
+div.tooltip a[data-dismiss="tooltip"]:hover, div.tooltip a[data-dismiss="tooltip"]:focus, div.tooltip a[data-dismiss="tooltip"]:active, div.tooltip button[data-dismiss="tooltip"]:hover, div.tooltip button[data-dismiss="tooltip"]:focus, div.tooltip button[data-dismiss="tooltip"]:active {
+  background-color: #DD0000;
+  color: #FFFFFF;
+}
+div.tooltip.top-left:after, div.tooltip.top-left:before {
+  top: 100%;
+  left: 30px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.top-right:after, div.tooltip.top-right:before {
+  top: 100%;
+  left: calc(100% - 30px);
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.top-center:after, div.tooltip.top-center:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.top-left, div.tooltip.top-right, div.tooltip.top-center {
+  margin-top: -15px;
+}
+div.tooltip.top-left:after, div.tooltip.top-right:after, div.tooltip.top-center:after {
+  border-top-color: rgba(0, 0, 0, 0.85);
+  border-width: 10px;
+  margin-left: -10px;
+}
+div.tooltip.top-left:before, div.tooltip.top-right:before, div.tooltip.top-center:before {
+  border-top-color: rgba(0, 0, 0, 0.85);
+  border-width: 11px;
+  margin-left: -11px;
+}
+div.tooltip.bottom-left:after, div.tooltip.bottom-left:before {
+  bottom: 100%;
+  left: 30px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.bottom-center:after, div.tooltip.bottom-center:before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.bottom-right:after, div.tooltip.bottom-right:before {
+  bottom: 100%;
+  left: calc(100% - 30px);
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.bottom-left, div.tooltip.bottom-center, div.tooltip.bottom-right {
+  margin-top: 15px;
+}
+div.tooltip.bottom-left:after, div.tooltip.bottom-center:after, div.tooltip.bottom-right:after {
+  border-bottom-color: rgba(0, 0, 0, 0.85);
+  border-width: 10px;
+  margin-left: -10px;
+}
+div.tooltip.bottom-left:before, div.tooltip.bottom-center:before, div.tooltip.bottom-right:before {
+  border-bottom-color: rgba(0, 0, 0, 0.85);
+  border-width: -11px;
+  margin-left: -11px;
+}
+div.tooltip.left-top:after, div.tooltip.left-top:before {
+  left: 100%;
+  top: 30px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.left-middle:after, div.tooltip.left-middle:before {
+  left: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.left-bottom:after, div.tooltip.left-bottom:before {
+  left: 100%;
+  top: calc(100% - 30px);
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.left-top, div.tooltip.left-middle, div.tooltip.left-bottom {
+  margin-left: -15px;
+}
+div.tooltip.left-top:after, div.tooltip.left-middle:after, div.tooltip.left-bottom:after {
+  border-left-color: rgba(0, 0, 0, 0.85);
+  border-width: 10px;
+  margin-top: -10px;
+}
+div.tooltip.left-top:before, div.tooltip.left-middle:before, div.tooltip.left-bottom:before {
+  border-left-color: rgba(0, 0, 0, 0.85);
+  border-width: 11px;
+  margin-top: -11px;
+}
+div.tooltip.right-top:after, div.tooltip.right-top:before {
+  right: 100%;
+  top: 30px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.right-middle:after, div.tooltip.right-middle:before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.right-bottom:after, div.tooltip.right-bottom:before {
+  right: 100%;
+  top: calc(100% - 30px);
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+div.tooltip.right-top, div.tooltip.right-middle, div.tooltip.right-bottom {
+  margin-left: 15px;
+}
+div.tooltip.right-top:after, div.tooltip.right-middle:after, div.tooltip.right-bottom:after {
+  border-right-color: rgba(0, 0, 0, 0.85);
+  border-width: 10px;
+  margin-top: -10px;
+}
+div.tooltip.right-top:before, div.tooltip.right-middle:before, div.tooltip.right-bottom:before {
+  border-right-color: rgba(0, 0, 0, 0.85);
+  border-width: 11px;
+  margin-top: -11px;
+}
+
+.tooltip-demo {
+  position: relative;
+  display: block;
+  height: 70px;
+  margin: 0 0 10px 0;
+}
+
+.tooltip-demo-btn {
+  position: absolute;
+  display: inline-block;
+  padding: 15px 10px;
+  margin: 0 10px 0 0;
+  width: 25%;
+  color: #FFFFFF;
+  background-color: #444;
+  border: 1px solid #555;
+  border-radius: 2px;
+  font-size: 14px;
+  box-shadow: 3px 3px 15px 0 rgba(0, 0, 0, 0.35);
+  -webkit-transition: box-shadow 1s;
+  transition: box-shadow 1s;
+}
+.tooltip-demo-btn:hover, .tooltip-demo-btn:focus, .tooltip-demo-btn:active {
+  box-shadow: 3px 3px 15px 0 transparent;
+}
+.tooltip-demo-btn.left {
+  left: 0 !important;
+  top: 0 !important;
+}
+.tooltip-demo-btn.center {
+  left: 50% !important;
+  top: 0 !important;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.tooltip-demo-btn.right {
+  right: 0 !important;
+  top: 0 !important;
+}
+
+.datagrid {
+  font: normal 12px/150% Arial, Helvetica, sans-serif;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid #8C8C8C;
+  border-radius: 3px;
+}
+.datagrid ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+.datagrid ul li {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+.datagrid table {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+.datagrid table td, .datagrid table th {
+  padding: 3px 10px;
+}
+.datagrid table thead th {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #8C8C8C), color-stop(1, #7D7D7D));
+  background: -moz-linear-gradient(center top, #8C8C8C 5%, #7D7D7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8C8C8C', endColorstr='#7D7D7D');
+  background-color: #8C8C8C;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: bold;
+  border-left: 1px solid #A3A3A3;
+}
+.datagrid table thead th:first-child {
+  border: none;
+}
+.datagrid table tbody td {
+  color: #7D7D7D;
+  border-left: 1px solid #DBDBDB;
+  font-size: 12px;
+  font-weight: normal;
+  vertical-align: top;
+}
+.datagrid table tbody .alt td {
+  background: #EBEBEB;
+  color: #7D7D7D;
+}
+.datagrid table tbody td:first-child {
+  border-left: none;
+}
+.datagrid table tbody tr:last-child td {
+  border-bottom: none;
+}
+.datagrid table tfoot td {
+  padding: 0;
+  font-size: 12px;
+}
+.datagrid table tfoot td div {
+  border-top: 1px solid #8C8C8C;
+  background: #EBEBEB;
+  padding: 2px;
+}
+.datagrid table tfoot td ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+}
+.datagrid table tfoot li {
+  display: inline;
+}
+.datagrid table tfoot li a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 1px;
+  color: #F5F5F5;
+  border: 1px solid #8C8C8C;
+  border-radius: 3px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #8C8C8C), color-stop(1, #7D7D7D));
+  background: -moz-linear-gradient(center top, #8C8C8C 5%, #7D7D7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8C8C8C', endColorstr='#7D7D7D');
+  background-color: #8C8C8C;
+}
+.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover {
+  text-decoration: none;
+  border-color: #7D7D7D;
+  color: #F5F5F5;
+  background: none;
+  background-color: #8C8C8C;
+}
+
+div.dhtmlx_window_active, div.dhx_modal_cover_dv {
+  position: fixed !important;
+}
